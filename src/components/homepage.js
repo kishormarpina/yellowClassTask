@@ -46,7 +46,6 @@ const cellPositionerConfig = {
 const cellPositioner = createMasonryCellPositioner(cellPositionerConfig);
 
 const MasonryComponent = ({ itemsWithSizes,enlarge, setRef }) => {
-  // console.log(setRef)
   const cellRenderer = ({ index, key, parent, style }) => {
     const { item, size } = itemsWithSizes[index];
     const height = columnWidth * (size.height / size.width) || defaultHeight;
@@ -107,14 +106,12 @@ class Index extends React.Component {
        images : this.props.images?this.props.images:[],
        page: 1,
        display: false,
-      //  toggle: true
     }
   }
   masonryRef = null;
   componentDidMount(){
-    if(!this.props.toggle){
     console.log("comp mount")
-    fetch(`https://api.unsplash.com/photos?client_id=D-zgXYeU8J0EdC1AiSQfCITgcp_Gjws3mS23ZxdtMXE&per_page=5`)
+    fetch(`https://api.unsplash.com/photos?page=${this.state.page}&client_id=D-zgXYeU8J0EdC1AiSQfCITgcp_Gjws3mS23ZxdtMXE&per_page=25`)
     .then((res)=>{
         console.log("resp came")
         return res.json()
@@ -129,17 +126,19 @@ class Index extends React.Component {
           display: false })
        
     })
-    }
   }
   enlarge = (params)=> {
     console.log("params", params)
     this.setState({index : params,  display:!this.state.display}, ()=>{
         console.log("after set state img", this.state.index);
     })
+    cache.clearAll();
+    cellPositioner.reset(cellPositionerConfig);
+    this.masonryRef.clearCellPositions();
   }
   fetchMoreData = () =>{
     this.setState({page: this.state.page+1}, ()=>{
-      fetch(`https://api.unsplash.com/photos?page=${this.state.page}&client_id=D-zgXYeU8J0EdC1AiSQfCITgcp_Gjws3mS23ZxdtMXE&per_page=5`)
+      fetch(`https://api.unsplash.com/photos?page=${this.state.page}&client_id=D-zgXYeU8J0EdC1AiSQfCITgcp_Gjws3mS23ZxdtMXE&per_page=25`)
       .then((res)=>{
           console.log("resp came")
           return res.json()
@@ -156,7 +155,6 @@ class Index extends React.Component {
       })
     })
   }
-  // this shows how to significantly change the input array, if items will be only appended this recalculation is not needed
   shorten = () => {
     cache.clearAll();
     cellPositioner.reset(cellPositionerConfig);
@@ -172,14 +170,6 @@ class Index extends React.Component {
   setMasonry = node => (this.masonryRef = node);
 
   render() {
-    // if(this.props.toggle && this.state.toggle){
-    //   console.log("in toogle", this.props.images)
-    //   this.setState({
-    //     images: this.props.images,
-    //     toggle: false
-    //   })
-    //   // this.toggleDisplay()
-    // }
     let ele= ''
     if(this.state.images  && !this.state.display){
       ele = <div>
