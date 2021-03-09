@@ -63,7 +63,7 @@ const MasonryComponent = ({ itemsWithSizes,enlarge, setRef }) => {
             //     photoIndex : index
             //   }
             // }}>
-           <button onClick={()=>{
+           <button border="none" display="inline-block" onClick={()=>{
               enlarge(index)
             }}>
             <img
@@ -89,8 +89,8 @@ const MasonryComponent = ({ itemsWithSizes,enlarge, setRef }) => {
       cellMeasurerCache={cache}
       cellPositioner={cellPositioner}
       cellRenderer={cellRenderer}
-      height={520}
-      width={window.innerWidth}
+      height={560}
+      width={1263}
       keyMapper={keyMapper}
       ref={setRef}
     />
