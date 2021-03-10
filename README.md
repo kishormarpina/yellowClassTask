@@ -4,7 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployment
 
-  This app is deployed in netlify : [https://60476cecea4c74d2a52de095--yellowtask.netlify.app/](https://60476cecea4c74d2a52de095--yellowtask.netlify.app/)
+  This app is deployed in netlify : [https://604834f7621dd35cc0c8f3b1--yellowtask.netlify.app](https://604834f7621dd35cc0c8f3b1--yellowtask.netlify.app)
+## Description
+  This project is built using react-virtualised. Infinite-scroll feature is implemented, when scrollbar reaches end of the window API call will be made and new data will be fetched. 
 
 ## Available Scripts
 
