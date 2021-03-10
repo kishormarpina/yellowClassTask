@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment
+
+  This app is deployed in netlify : [https://60476cecea4c74d2a52de095--yellowtask.netlify.app/](https://60476cecea4c74d2a52de095--yellowtask.netlify.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -61,9 +65,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
